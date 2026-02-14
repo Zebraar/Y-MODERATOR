@@ -583,10 +583,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6320b4d82662fa24aaf062c3baac2f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonsLogic
-  images:
+  Memasiki:
   - {fileID: -2470614938961805849, guid: 8e179b20db5e6034f800ee9d811ceac2, type: 3}
   - {fileID: 7093366098652639363, guid: b47249f885dd413488102672d338a957, type: 3}
   - {fileID: 2433553667674190967, guid: d4d51ba7c740a9e45bf952426307d549, type: 3}
+  Scary:
+  - {fileID: 7271817740714350981, guid: 90783c9eac189d64997da666e41dddd9, type: 3}
+  - {fileID: 6763957118287748423, guid: a90c381c7b5e8ac4b8abce5055f8adf0, type: 3}
   MainImage: {fileID: 1560008909}
   CurrentImage: 0
 --- !u!1 &1135135081
