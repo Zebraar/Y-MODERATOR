@@ -21,11 +21,19 @@ public class ButtonsLogic : MonoBehaviour
     public void OnClickApprove()
     {
         CurrentImage++;
-        ShowNormalImageChance = rnd.Next(10);
+        ShowNormalImageChance = rnd.Next(5);
         Debug.Log("Шанс показа обычного изображения: " + ShowNormalImageChance);
         if(ShowNormalImageChance == 4)
         {
-            MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
+            if(CurrentImage >= NormalImages.Length)
+            {
+                CurrentImage = 0;
+                MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
+            } else
+            {
+                MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
+            }
+            
         }
         if(CurrentImage >= Memasiki.Length)
         {
