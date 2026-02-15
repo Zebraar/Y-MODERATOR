@@ -32,7 +32,7 @@ public class ButtonsLogic : MonoBehaviour
     public void OnClickReject()
     {
         CurrentImage++;
-        if(CurrentImage > Memasiki.Length)
+        if(CurrentImage >= Memasiki.Length)
         {
             CurrentImage = 0;
             Debug.Log("Начинаем с сначала массива");
