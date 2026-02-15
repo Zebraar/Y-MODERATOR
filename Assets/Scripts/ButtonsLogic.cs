@@ -4,78 +4,53 @@ using System;
 
 public class ButtonsLogic : MonoBehaviour
 {
-
     public Sprite[] Memasiki;
     public Sprite[] ScaryImages;
     public Sprite[] NormalImages;
     public Image MainImage;
-    public int CurrentImage = 0;
+    
+    private int CurrentImage = 0;
     private System.Random rnd = new System.Random();
-    private int ShowNormalImageChance = 0;
 
     void Start()
     {
-        MainImage.GetComponent<Image>().sprite = Memasiki[CurrentImage];
+        UpdateImage();
     }
 
     public void OnClickApprove()
     {
-        CurrentImage++;
-        ShowNormalImageChance = rnd.Next(2);
-        Debug.Log("Шанс показа обычного изображения: " + ShowNormalImageChance);
-        if(ShowNormalImageChance == 1)
-        {
-            if(CurrentImage >= NormalImages.Length)
-            {
-                CurrentImage = 0;
-                MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
-            } else
-            {
-                MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
-            }
-            
-        }
-        if(CurrentImage >= Memasiki.Length)
-        {
-            CurrentImage = 0;
-            Debug.Log("Начинаем с сначала массива");
-            MainImage.GetComponent<Image>().sprite = Memasiki[CurrentImage];
-        } else
-        {
-            MainImage.GetComponent<Image>().sprite = Memasiki[CurrentImage];
-        }   
+        NextImage();
         Debug.Log("Одобрили изображение");
     }
 
     public void OnClickReject()
     {
-        CurrentImage++;
-        ShowNormalImageChance = rnd.Next(2);
-        Debug.Log("Шанс показа обычного изображения: " + ShowNormalImageChance);
-        if(ShowNormalImageChance == 1)
-        {
-            if(CurrentImage >= NormalImages.Length)
-            {
-                CurrentImage = 0;
-                MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
-            } else
-            {
-                MainImage.GetComponent<Image>().sprite = NormalImages[CurrentImage];
-            }
-            
-        }
-        if(CurrentImage >= Memasiki.Length)
-        {
-            CurrentImage = 0;
-            Debug.Log("Начинаем с сначала массива");
-            MainImage.GetComponent<Image>().sprite = Memasiki[CurrentImage];
-        } else
-        {
-            MainImage.GetComponent<Image>().sprite = Memasiki[CurrentImage];
-        }
-        MainImage.GetComponent<Image>().sprite = Memasiki[CurrentImage];
+        NextImage();
         Debug.Log("Отклонили изображение");
-
     }
 
+    private void NextImage()
+    {
+        CurrentImage++;
+        UpdateImage();
+    }
+
+    private void UpdateImage()
+    {
+        int chance = rnd.Next(2); 
+        Debug.Log("Шанс (1 = Normal): " + chance);
+
+        if (chance == 1 && NormalImages.Length > 0)
+        {
+            int index = CurrentImage % NormalImages.Length;
+            MainImage.sprite = NormalImages[index];
+            return; 
+        }
+
+        if (Memasiki.Length > 0)
+        {
+            int index = CurrentImage % Memasiki.Length;
+            MainImage.sprite = Memasiki[index];
+        }
+    }
 }
