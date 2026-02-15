@@ -12,7 +12,7 @@ public class ButtonsLogic : MonoBehaviour
     private int CurrentImage = 0;
     private System.Random rnd = new System.Random();
     public int TotalSkippedImages = 0;
-    private int ScaryChance = 0;
+    private int ScaryChance = 100;
 
     void Start()
     {
@@ -54,14 +54,11 @@ public class ButtonsLogic : MonoBehaviour
         }
         else
         {
-            switch (TotalSkippedImages)
-            {
-                case 20: ScaryChance = 10; break;
-                case 30: ScaryChance = 5; break;
-                case 50: ScaryChance = 2; break;        
-            }
+            if (TotalSkippedImages >= 50) ScaryChance = 2;
+            else if (TotalSkippedImages >= 30) ScaryChance = 5;
+            else if (TotalSkippedImages >= 20) ScaryChance = 10;
 
-            if (ShowScaryImageChance == 1)
+            if (ShowScaryImageChance == 1 && ScaryImages.Length > 0)
             {
                 int index = CurrentImage % ScaryImages.Length;
                 selectedSprite = ScaryImages[index];
