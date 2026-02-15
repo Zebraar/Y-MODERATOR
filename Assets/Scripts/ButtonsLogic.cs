@@ -9,6 +9,7 @@ public class ButtonsLogic : MonoBehaviour
     public Sprite[] ScaryImages;
     public Sprite[] NormalImages;
     public Image MainImage;
+    private AspectRatioFitter aspectFitter;
     
     private int CurrentImage = 0;
     private System.Random rnd = new System.Random();
@@ -17,6 +18,7 @@ public class ButtonsLogic : MonoBehaviour
 
     void Start()
     {
+        aspectFitter = MainImage.GetComponent<AspectRatioFitter>();
         UpdateImage();
     }
 
@@ -42,39 +44,45 @@ public class ButtonsLogic : MonoBehaviour
     private void UpdateImage()
     {
         int chance = rnd.Next(2); 
-        int ShowScaryImageChance = rnd.Next(ScaryChance);
+        int ShowScaryImageChance = rnd.Next(Mathf.Max(1, ScaryChance));
         Debug.Log("Шанс (1 = Normal): " + chance);
 
-        if (chance == 1 && NormalImages.Length > 0)
+        Sprite selectedSprite = null;
+
+        if (chance == 1)
         {
             int index = CurrentImage % NormalImages.Length;
-            MainImage.sprite = NormalImages[index];
-            return; 
+            selectedSprite = NormalImages[index];
+        }
+        else
+        {
+            switch (TotalSkippedImages)
+            {
+                case 20: ScaryChance = 10; break;
+                case 30: ScaryChance = 5; break;
+                case 50: ScaryChance = 2; break;        
+            }
+
+            if (ShowScaryImageChance == 1)
+            {
+                int index = CurrentImage % ScaryImages.Length;
+                selectedSprite = ScaryImages[index];
+            }
+            else
+            {
+                int index = CurrentImage % Memasiki.Length;
+                selectedSprite = Memasiki[index];
+            }
         }
 
-        switch (TotalSkippedImages)
+        if (selectedSprite != null && MainImage != null)
         {
-            case 20:
-                ScaryChance = 10;
-                break;
-            case 30:
-                ScaryChance = 5;
-                break;
-            case 50:
-                ScaryChance = 2;
-                break;        
-        }
-        if (ShowScaryImageChance == 1 && ScaryImages.Length > 0)
-        {
-            int index = CurrentImage % ScaryImages.Length;
-            MainImage.sprite = ScaryImages[index];
-            return;
-        }
-
-        if (Memasiki.Length > 0)
-        {
-            int index = CurrentImage % Memasiki.Length;
-            MainImage.sprite = Memasiki[index];
+            MainImage.sprite = selectedSprite;
+            
+            if (aspectFitter != null)
+            {
+                aspectFitter.aspectRatio = selectedSprite.rect.width / selectedSprite.rect.height;
+            }
         }
     }
 }
