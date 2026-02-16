@@ -20,7 +20,7 @@ public class YouLie : MonoBehaviour
         i++;
         if(i >= 100)
         {
-            Debug.Log("СТОП!");
+            crash.CauseFakeError("YOU LIE");
         } else
         {
             int x = rnd.Next(-750, 750);
