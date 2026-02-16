@@ -9,7 +9,7 @@ public class ButtonsLogic : MonoBehaviour
     public Sprite[] NormalImages;
     public Image MainImage;
     private AspectRatioFitter aspectFitter;
-    private YouLie lie = new YouLie();
+    public YouLie lie;
     
     private int CurrentImage = 0;
     private System.Random rnd = new System.Random();

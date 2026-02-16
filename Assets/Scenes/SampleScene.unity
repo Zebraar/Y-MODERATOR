@@ -861,6 +861,7 @@ MonoBehaviour:
   - {fileID: 9048311278134720034, guid: 30d6373dc026ce945b811edc6416a627, type: 3}
   - {fileID: 5127144823286872960, guid: 44a539f70d7212d41a79f264e03f646a, type: 3}
   MainImage: {fileID: 1560008909}
+  lie: {fileID: 1085555865}
   TotalSkippedImages: 0
 --- !u!114 &1085555865
 MonoBehaviour:

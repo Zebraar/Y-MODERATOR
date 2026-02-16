@@ -15,12 +15,14 @@ public class YouLie : MonoBehaviour
     }
     public void YouLiee()
     {
-            
+        for(int i = 0; i < 200; i++)
+        {
             int x = rnd.Next(-750, 750);
             int y = rnd.Next(-350, 350);
             GameObject newText = Instantiate(Text, canvasTransform);
             newText.transform.localPosition = new Vector3(x, y, 0);
             StartCoroutine(WaitAndDoLie(0.05f)); 
+        }     
     }
 
     IEnumerator WaitAndDoLie(float delay)
