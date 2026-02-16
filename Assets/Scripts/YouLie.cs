@@ -18,15 +18,17 @@ public class YouLie : MonoBehaviour
     public void YouLiee()
     {
         i++;
-        if(i >= 100)
+        if(i >= 300)
         {
-            crash.CauseFakeError("YOU LIE");
+            for(int i = 0; i < 10; i++)
+                crash.CauseFakeError("YOU LIE");
         } else
         {
-            int x = rnd.Next(-750, 750);
-            int y = rnd.Next(-350, 350);
+            int x = rnd.Next(-1500, 1500);
+            int y = rnd.Next(-700, 700);
             GameObject newText = Instantiate(Text, canvasTransform);
             newText.transform.localPosition = new Vector3(x, y, 0);
+            newText.SetActive(true);
             StartCoroutine(WaitAndDoLie(0.01f));
         }
                  
