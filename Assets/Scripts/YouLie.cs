@@ -10,7 +10,7 @@ public class YouLie : MonoBehaviour
     int y = 0;
     void Start()
     {
-        WaitAndDoLie(2.0f);
+        StartCoroutine(WaitAndDoLie(0.3f)); 
     }
     public void YouLiee()
     {
@@ -18,7 +18,7 @@ public class YouLie : MonoBehaviour
             int x = rnd.Next(-750, 750);
             int y = rnd.Next(-350, 350);
             Instantiate(Text, new Vector3(x, y, 0), Quaternion.identity);
-            WaitAndDoLie(2.0f);
+            WaitAndDoLie(0.3f);
     }
 
     IEnumerator WaitAndDoLie(float delay)

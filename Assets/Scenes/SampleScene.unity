@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: 1085555861}
   - component: {fileID: 1085555860}
   - component: {fileID: 1085555864}
+  - component: {fileID: 1085555865}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -861,6 +862,19 @@ MonoBehaviour:
   - {fileID: 5127144823286872960, guid: 44a539f70d7212d41a79f264e03f646a, type: 3}
   MainImage: {fileID: 1560008909}
   TotalSkippedImages: 0
+--- !u!114 &1085555865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085555859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cecd57ef62d8c4d9bd6c5b5fb4bc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YouLie
+  Text: {fileID: 2611088183297417888}
 --- !u!1 &1135135081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1805,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6533e776bf43815429d838bdd9a4b9e7, type: 3}
+--- !u!1 &2611088183297417888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1824792458225202435, guid: 6533e776bf43815429d838bdd9a4b9e7, type: 3}
+  m_PrefabInstance: {fileID: 2611088183297417887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
