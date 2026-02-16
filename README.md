@@ -1,5 +1,5 @@
 # Y-MODERATOR (Internal Build)
-![Version](https://img.shields.io/badge/version-0.1.0_ALPHA-red)
+![Version](https://img.shields.io/badge/version-0.0.X_ALPHA-red)
 ![Status](https://img.shields.io/badge/status-UNSTABLE-yellow)
 ![Security](https://img.shields.io/badge/security-BREACHED-critical)
 
