@@ -1,4 +1,7 @@
 # Y-MODERATOR (Internal Build)
+![Version](https://img.shields.io/badge/version-0.1.0_ALPHA-red)
+![Status](https://img.shields.io/badge/status-UNSTABLE-yellow)
+![Security](https://img.shields.io/badge/security-BREACHED-critical)
 
 Официальный инструмент для модерации контента в социальной сети "Y". 
 Предназначен для сотрудников отдела контроля качества.
