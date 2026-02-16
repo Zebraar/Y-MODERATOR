@@ -24,16 +24,16 @@ public class ButtonsLogic : MonoBehaviour
 
     public void OnClickApprove()
     {
+        if (ScaryImages.Contains(MainImage.sprite))
+        {
+            lie.StartLie();
+        }
         NextImage();
         Debug.Log("Одобрили изображение");
     }
 
     public void OnClickReject()
-    {
-        if (ScaryImages.Contains(MainImage.sprite))
-        {
-            lie.StartLie();
-        }
+    {        
         NextImage();
         Debug.Log("Отклонили изображение");
     }
