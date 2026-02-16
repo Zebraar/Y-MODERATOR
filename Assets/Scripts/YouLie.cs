@@ -11,7 +11,7 @@ public class YouLie : MonoBehaviour
     int y = 0;
     public void StartLie()
     {
-        StartCoroutine(WaitAndDoLie(0.05f)); 
+        YouLiee();
     }
     public void YouLiee()
     {
@@ -29,9 +29,6 @@ public class YouLie : MonoBehaviour
     {
         // Пауза
         yield return new WaitForSeconds(delay);
-
-        // Код, который выполнится после задержки
-        YouLiee();
     }
 
 }
