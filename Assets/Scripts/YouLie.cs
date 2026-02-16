@@ -9,7 +9,7 @@ public class YouLie : MonoBehaviour
     private System.Random rnd = new System.Random();
     int x = 0;
     int y = 0;
-    void Start()
+    public void StartLie()
     {
         StartCoroutine(WaitAndDoLie(0.05f)); 
     }

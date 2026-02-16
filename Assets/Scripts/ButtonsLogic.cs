@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ButtonsLogic : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ButtonsLogic : MonoBehaviour
     public Sprite[] NormalImages;
     public Image MainImage;
     private AspectRatioFitter aspectFitter;
+    private YouLie lie = new YouLie();
     
     private int CurrentImage = 0;
     private System.Random rnd = new System.Random();
@@ -28,6 +30,10 @@ public class ButtonsLogic : MonoBehaviour
 
     public void OnClickReject()
     {
+        if (ScaryImages.Contains(MainImage.sprite))
+        {
+            lie.StartLie();
+        }
         NextImage();
         Debug.Log("Отклонили изображение");
     }
