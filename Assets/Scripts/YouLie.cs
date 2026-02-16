@@ -1,5 +1,5 @@
-using UnityEditor;
 using UnityEngine;
+using System.Collections;
 
 public class YouLie : MonoBehaviour
 {
@@ -10,16 +10,24 @@ public class YouLie : MonoBehaviour
     int y = 0;
     void Start()
     {
-        // YouLiee();
+        WaitAndDoLie(2.0f);
     }
     public void YouLiee()
     {
-        while(true)
-        {
+            
             int x = rnd.Next(-750, 750);
             int y = rnd.Next(-350, 350);
-            gameObject.GetComponent<RectTransform>().position = new Vector3(x, y, 0);
-        }
+            Instantiate(Text, new Vector3(x, y, 0), Quaternion.identity);
+            WaitAndDoLie(2.0f);
+    }
+
+    IEnumerator WaitAndDoLie(float delay)
+    {
+        // Пауза
+        yield return new WaitForSeconds(delay);
+
+        // Код, который выполнится после задержки
+        YouLiee();
     }
 
 }
