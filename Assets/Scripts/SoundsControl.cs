@@ -5,6 +5,7 @@ public class SoundsControl : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip ClickSound;
+    public AudioClip ScarySounds;
 
     void Start()
     {
@@ -14,6 +15,11 @@ public class SoundsControl : MonoBehaviour
     public void PlayClickSound()
     {
         audioSource.PlayOneShot(ClickSound); 
+    }
+
+    public void PlayScarySounds()
+    {
+        audioSource.PlayOneShot(ScarySounds);
     }
 
 }

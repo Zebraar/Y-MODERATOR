@@ -8,12 +8,14 @@ public class YouLie : MonoBehaviour
     public Transform canvasTransform; 
     private System.Random rnd = new System.Random();
     public FakeCrash crash;
+    public SoundsControl soundsControl;
     int x = 0;
     int y = 0;
     int i = 0;
     public void StartLie()
     {
         StartCoroutine(WaitAndDoLie(0.01f));
+        soundsControl.PlayScarySounds();
     }
     public void YouLiee()
     {
