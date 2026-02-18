@@ -10,6 +10,7 @@ public class ButtonsLogic : MonoBehaviour
     public Image MainImage;
     private AspectRatioFitter aspectFitter;
     public YouLie lie;
+    public SoundsControl soundsControl;
     
     private int CurrentImage = 0;
     private System.Random rnd = new System.Random();
@@ -28,12 +29,14 @@ public class ButtonsLogic : MonoBehaviour
         {
             lie.StartLie();
         }
+        soundsControl.PlayClickSound();
         NextImage();
     }
 
     public void OnClickReject()
     {        
         NextImage();
+        soundsControl.PlayClickSound();
     }
 
     private void NextImage()
